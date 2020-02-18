@@ -1,0 +1,1139 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://pgxo.loria.fr/"
+     xml:base="http://pgxo.loria.fr/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ro="http://purl.obolibrary.org/obo/"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:pgxo="http://pgxo.loria.fr/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://pgxo.loria.fr/">
+        <dc:creator>Adrien Coulet, Loria - Inria, Université de Lorraine</dc:creator>
+        <dc:creator>Clément Jonquet, LIRMM, Université de Montpellier</dc:creator>
+        <dc:creator>Pierre Monnin, Loria (CNRS, Inria Nancy-Grand Est, Université de Lorraine)</dc:creator>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Change pgxo:causes to a set of potential relationships
+
+- more granularity added
+- add negative relationships (not semantically defined) e.g. isNotAssociatedWith (note that isAssociatedWith is not defined as disjoint with isNotAssociatedWith whereas it could be)</rdfs:comment>
+        <rdfs:comment>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
+        <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.5</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pgxo.loria.fr/causes -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/causes">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/decreases -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/decreases">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isDecreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/decreasesChanceOf -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/decreasesChanceOf">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/hasChanceDecreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotCause -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotCause">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotCausedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotDecrease -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotDecrease">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotDecreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotDecreaseChanceOf -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotDecreaseChanceOf">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/hasNotChanceDecreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotIncrease -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotIncrease">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotIncreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotIncreaseChanceOf -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotIncreaseChanceOf">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/hasNotChanceIncreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotInfluence -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotInfluence">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotAssociatedWith"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotMetabolize -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotMetabolize">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotMetabolizedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotTransport -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotTransport">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotTransportedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/doesNotTreat -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotTreat">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotAssociatedWith"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotTreatedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/hasChanceDecreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/hasChanceDecreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/hasChanceIncreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/hasChanceIncreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/increasesChanceOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/hasNotChanceDecreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/hasNotChanceDecreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/hasNotChanceIncreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/hasNotChanceIncreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/increases -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/increases">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isIncreasedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/increasesChanceOf -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/increasesChanceOf">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/influences -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/influences">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isAssociatedWith"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isAssociatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isAssociatedWith">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isCausedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isCausedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isDecreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isDecreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isIncreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isIncreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isInfluencedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isAssociatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isMetabolizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isMetabolizedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/metabolizes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotAssociatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotAssociatedWith">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotCausedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotCausedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotDecreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotDecreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotIncreasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotIncreasedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotInfluencedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotAssociatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotMetabolizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotMetabolizedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotTransportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotTransportedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isNotTreatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotTreatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotAssociatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isTransportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isTransportedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/transports"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/isTreatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isTreatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isAssociatedWith"/>
+        <owl:inverseOf rdf:resource="http://pgxo.loria.fr/treats"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/metabolizes -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/metabolizes">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/qualifiedProxy -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/qualifiedProxy"/>
+    
+
+
+    <!-- http://pgxo.loria.fr/qualifiedVariation -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/qualifiedVariation"/>
+    
+
+
+    <!-- http://pgxo.loria.fr/transports -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/transports">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://pgxo.loria.fr/treats -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/treats">
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isAssociatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000050 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000050">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        <rdfs:label xml:lang="en">part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000051 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000051">
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002502">
+        <rdfs:label xml:lang="en">depends on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasQuality">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality"/>
+        <rdfs:label xml:lang="en">has quality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:label xml:lang="en">has data value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pgxo.loria.fr/Disease -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Disease">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <rdfs:label>Disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/Drug -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Drug">
+        <rdfs:label>Drug</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/Gene -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Gene">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
+        <rdfs:label>Gene</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/GeneticFactor -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/GeneticFactor">
+        <rdfs:label>Genetic factor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/GenomicVariation -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/GenomicVariation">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
+        <rdfs:label>Genomic variation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/Haplotype -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Haplotype">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GenomicVariation"/>
+        <rdfs:label>Haplotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/PharmacodynamicPhenotype -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/PharmacodynamicPhenotype">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <rdfs:label>Pharmacodynamic phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/PharmacogenomicRelationship -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/PharmacogenomicRelationship">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:label>Pharmacogenomic relationship</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/PharmacokineticPhenotype -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/PharmacokineticPhenotype">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <rdfs:label>Pharmacokinetic phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/Phenotype -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Phenotype">
+        <rdfs:label>Phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/Variant -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Variant">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GenomicVariation"/>
+        <rdfs:label>Variant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://pgxo.loria.fr/test/CardiovascularDiseases -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/test/CardiovascularDiseases"/>
+    
+
+
+    <!-- http://pgxo.loria.fr/test/HeartBlock -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/test/HeartBlock">
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/test/CardiovascularDiseases"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity">
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:label xml:lang="en">Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Generation -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Generation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <ro:RO_0002502 rdf:resource="http://pgxo.loria.fr/drug1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR10 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR10">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR2 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR2">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR3 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR3">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR4 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR4">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR5 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR5">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR6 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR6">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR7 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR7">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR8 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR8">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/ADR9 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/ADR9">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/CYP2C9 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/CYP2C9">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Gene"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r1"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r12"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r14"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r15"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r2"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r3"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r4"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r5"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r6"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r7"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/TPMT -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/TPMT">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Gene"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r10"/>
+        <influences rdf:resource="http://pgxo.loria.fr/r16"/>
+        <ro:BFO_0000051 rdf:resource="http://pgxo.loria.fr/TPMT*1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/bleeding -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/bleeding">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r14"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/cardiovascular_diseases_inst1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/cardiovascular_diseases_inst1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <owl:sameAs rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst2"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/cardiovascular_diseases_inst2 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/cardiovascular_diseases_inst2">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Disease"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/cardiovascular_diseases_inst3 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/cardiovascular_diseases_inst3">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/cardiovascular_diseases_inst4 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/cardiovascular_diseases_inst4">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <rdf:type rdf:resource="http://pgxo.loria.fr/test/CardiovascularDiseases"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/cardiovascular_diseases_inst5 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/cardiovascular_diseases_inst5">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/drug1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/drug1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Drug"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/drug2 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/drug2">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Drug"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/gene1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/gene1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Gene"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/heart_block_inst1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/heart_block_inst1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r4"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/heart_block_inst2 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/heart_block_inst2">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <rdf:type rdf:resource="http://pgxo.loria.fr/test/HeartBlock"/>
+        <owl:sameAs rdf:resource="http://pgxo.loria.fr/heart_block_inst4"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/heart_block_inst3 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/heart_block_inst3">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r8"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/heart_block_inst4 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/heart_block_inst4">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r12"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/heart_block_inst5 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/heart_block_inst5">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <rdf:type rdf:resource="http://pgxo.loria.fr/test/HeartBlock"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r15"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/iron_deficiency_anemia -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/iron_deficiency_anemia">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Phenotype"/>
+        <isAssociatedWith rdf:resource="http://pgxo.loria.fr/r16"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r10"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/r11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r10 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r10">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/iron_deficiency_anemia"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/TPMT"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/thiopurine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r11 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r11">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/iron_deficiency_anemia"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/thiopurine"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/TPMT*1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r12 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r12">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst4"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r14 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r14">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/bleeding"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r15 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r15">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst5"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r16 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r16">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <isAssociatedWith rdf:resource="http://pgxo.loria.fr/iron_deficiency_anemia"/>
+        <isAssociatedWith rdf:resource="http://pgxo.loria.fr/thiopurine"/>
+        <isInfluencedBy rdf:resource="http://pgxo.loria.fr/TPMT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r17 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r17">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR10"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/drug1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/gene1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r18 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r18">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/drug1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/gene1"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r19 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r19">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR1"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR2"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR3"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR5"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR6"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR7"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR8"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/gene1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r2 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r2">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r20 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r20">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/drug1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/gene1"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR2"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR3"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR4"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR5"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR6"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR7"/>
+        <isNotAssociatedWith rdf:resource="http://pgxo.loria.fr/ADR8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r21 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r21">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/ADR10"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/drug1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/drug2"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/gene1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r3 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r3">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst2"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r4 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r4">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst3"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r5 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r5">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst1"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r6 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r6">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst4"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r7 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r7">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst2"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r8 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r8">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst3"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/CYP2C9"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/r9 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/r9">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/PharmacogenomicRelationship"/>
+        <causes rdf:resource="http://pgxo.loria.fr/cardiovascular_diseases_inst5"/>
+        <causes rdf:resource="http://pgxo.loria.fr/heart_block_inst3"/>
+        <isCausedBy rdf:resource="http://pgxo.loria.fr/warfarin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/thiopurine -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/thiopurine">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Drug"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r10"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r11"/>
+        <isAssociatedWith rdf:resource="http://pgxo.loria.fr/r16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/warfarin -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/warfarin">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Drug"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r1"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r12"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r14"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r15"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r2"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r3"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r4"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r5"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r6"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r7"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r8"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pgxo.loria.fr/TPMT*1 -->
+
+    <owl:NamedIndividual rdf:about="http://pgxo.loria.fr/TPMT*1">
+        <rdf:type rdf:resource="http://pgxo.loria.fr/Haplotype"/>
+        <causes rdf:resource="http://pgxo.loria.fr/r11"/>
+        <ro:BFO_0000050 rdf:resource="http://pgxo.loria.fr/TPMT"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,92 @@
+{
+    "server-address": "http://pgxlod.loria.fr/sparql",
+    "url-json-conf-attribute": "format",
+    "url-json-conf-value": "application/sparql-results+json",
+    "url-default-graph-attribute": "default-graph-uri",
+    "url-default-graph-value": "http://pgxlod.loria.fr/",
+    "url-query-attribute": "query",
+    "timeout": 10000000,
+    "relation-types": [
+        "http://pgxo.loria.fr/PharmacogenomicRelationship"
+    ],
+    "dimensions": {
+        "GeneticFactor": {
+            "ind-types": [
+                "http://pgxo.loria.fr/GeneticFactor"
+            ],
+            "rel2ind-predicates": [
+                "http://pgxo.loria.fr/isAssociatedWith",
+                "http://pgxo.loria.fr/isNotAssociatedWith"
+            ],
+            "ind2dep-predicates": [
+            ],
+            "preorder": "Individuals",
+            "ind-leq-predicates": [
+                "http://purl.obolibrary.org/obo/BFO_0000050"
+            ],
+            "ind-geq-predicates": [
+                "http://purl.obolibrary.org/obo/BFO_0000051"
+            ]
+        },
+        "Drug": {
+            "ind-types": [
+                "http://pgxo.loria.fr/Drug"
+            ],
+            "rel2ind-predicates": [
+                "http://pgxo.loria.fr/isAssociatedWith",
+                "http://pgxo.loria.fr/isNotAssociatedWith"
+            ],
+            "ind2dep-predicates": [
+            ],
+            "preorder": "Annotations",
+            "ann-base-uris": [
+                "http://purl.obolibrary.org/obo/CHEBI_",
+                "http://bio2rdf.org/chebi:",
+                "http://identifiers.org/chebi/",
+                "http://purl.bioontology.org/ontology/UATC/",
+                "http://bio2rdf.org/atc:",
+                "http://identifiers.org/atc/"
+            ],
+            "ind2ann-predicates": [
+                "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+            ],
+            "ann-leq-predicates": [
+                "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+            ],
+            "ann-geq-predicates": [
+            ]
+        },
+        "Phenotype": {
+            "ind-types": [
+                "http://pgxo.loria.fr/Phenotype"
+            ],
+            "rel2ind-predicates": [
+                "http://pgxo.loria.fr/isAssociatedWith",
+                "http://pgxo.loria.fr/isNotAssociatedWith"
+            ],
+            "ind2dep-predicates": [
+                "http://purl.obolibrary.org/obo/RO_0002502"
+            ],
+            "preorder": "Annotations",
+            "ann-base-uris": [
+                "http://purl.bioontology.org/ontology/MESH/",
+                "http://bio2rdf.org/mesh:",
+                "http://identifiers.org/mesh/"
+            ],
+            "ind2ann-predicates": [
+                "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+            ],
+            "ann-leq-predicates": [
+                "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+            ],
+            "ann-geq-predicates": [
+            ]
+        }
+    },
+    "output-pred-equal": "http://www.w3.org/2002/07/owl#sameAs",
+    "output-pred-equiv": "http://www.w3.org/2004/02/skos/core#closeMatch",
+    "output-pred-leq": "http://www.w3.org/2004/02/skos/core#broadMatch",
+    "output-pred-geq": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+    "output-pred-comparable": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+    "output-pred-dependency-related": "http://www.w3.org/2004/02/skos/core#related"
+}
