@@ -1,12 +1,48 @@
 # tcn3r
 
-Reconciliation rules for n-ary relations encoded in RDF triples 
+Reconciliation rules for n-ary relations encoded in RDF triples
+
+A detailed description of the motivation and the algorithms of tcn3r is available in [the related article](https://arxiv.org/pdf/2002.08103.pdf).
+
+## Citing tcn3r
+
+When citing tcn3r, please use the following reference:
+
+Pierre Monnin, Miguel Couceiro, Amedeo Napoli, and Adrien Coulet. "Knowledge-Based
+Matching of n-ary Tuples". In: Ontologies and Concepts in Mind and Machine - 25th
+International Conference on Conceptual Structures, ICCS 2020, Bolzano, Italy, September
+18–20, 2020, Proceedings. Ed. by Mehwish Alam, Tanya Braun, and Bruno Yun. Vol. 12277.
+Lecture Notes in Computer Science. Springer, 2020, pp. 48–56. doi: 10.1007/978-3-030-
+57855-8_4. url: https://doi.org/10.1007/978-3-030-57855-8_4.
+
+```
+@inproceedings{Monnin2020,
+  author    = {Pierre Monnin and
+               Miguel Couceiro and
+               Amedeo Napoli and
+               Adrien Coulet},
+  editor    = {Mehwish Alam and
+               Tanya Braun and
+               Bruno Yun},
+  title     = {Knowledge-Based Matching of n-ary Tuples},
+  booktitle = {Ontologies and Concepts in Mind and Machine - 25th International Conference
+               on Conceptual Structures, {ICCS} 2020, Bolzano, Italy, September 18-20,
+               2020, Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12277},
+  pages     = {48--56},
+  publisher = {Springer},
+  year      = {2020},
+  url       = {https://doi.org/10.1007/978-3-030-57855-8_4},
+  doi       = {10.1007/978-3-030-57855-8_4},
+}
+```
 
 ## Execution
 
 ### ``batch`` mode
 
-Executes reconciliation rules on every pair of relationships in the triplestore. 
+Executes reconciliation rules on every pair of relationships in the triplestore.
 
 #### Execution (without Docker)
 
@@ -32,8 +68,8 @@ You can use the target ``run`` of the provided Makefile that calls the Docker im
 docker run --rm $(MAPUSER) -v ${PWD}/data:/data $(INAME):$(VERSION) --configuration /data/conf.json.example -o /data/output.ttl --simlimit 0.8 --complimit 2 --dimensionlimit 2 --max-rows 10000 --explain false -t 4
 ```
 
-The ``data`` subdirectory of the current directory is shared with the Docker container as ``/data``. 
-It is expected that the JSON configuration file is in this directory. 
+The ``data`` subdirectory of the current directory is shared with the Docker container as ``/data``.
+It is expected that the JSON configuration file is in this directory.
 ``/data`` is also the directory where the output TTL file will be stored.
 ``simlimit`` is set to 0.8, ``complimit`` to 2 and ``dimensionlimit`` is set to 2.
 4 threads will be used.
@@ -196,11 +232,11 @@ with:
 
 ## Tests
 
-A [test/pgxo+test.owl](test/pgxo+test.owl) file is available to test tcn3r. 
+A [test/pgxo+test.owl](test/pgxo+test.owl) file is available to test tcn3r.
 It should be imported in a triplestore.
 After the import, run tcn3r using the test configuration provided in [test/test-conf.json](test/test-conf.json) and the following parameters
 ``--simlimit 0.85 --complimit 3 --dimensionlimit 3``.
-You may need to adapt ``server-address`` depending on the location of the triplestore you use. 
+You may need to adapt ``server-address`` depending on the location of the triplestore you use.
 The description of the test cases can be found in [test/documentation-tests.pdf](test/documentation-tests.pdf).
 The (sorted) expected results can be found in [test/expected-output.ttl](test/expected-output.ttl).
 
